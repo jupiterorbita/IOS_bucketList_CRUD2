@@ -49,17 +49,17 @@ class ViewController: UIViewController {
     }
 
     // DELETE func
-        func delete(blist: BucketListItem){
-            print("inside DELETE")
-            context.delete(blist)
-            do{
-                try context.save()
-            }catch{
-                print("error?", error)
-            }
-//            appDelegate.saveContext()
-        }
-        
+//        func delete(blist: BucketListItem){
+//            print("inside DELETE")
+//            context.delete(blist)
+//            do{
+//                try context.save()
+//            }catch{
+//                print("error?", error)
+//            }
+////            appDelegate.saveContext()
+//        }
+    
     // save functionality - see if editing or saving
     @IBAction func unwindToViewController(segue: UIStoryboardSegue) {
         let src = segue.source as! AddItemVC
@@ -147,13 +147,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             }catch{
                 print("error?", error)
             }
-            
+//
             print("after DELETE func call")
             self.tableData.remove(at: indexPath.row)
             
             tableView.deleteRows(at: [indexPath], with: .automatic)
 //            tableView.reloadData()
-            
+            self.fetchAll()
             done(true)
         })
         
